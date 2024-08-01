@@ -10,6 +10,7 @@
                 <th pSortableColumn="name">Nombre</th>
                 <th pSortableColumn="parallel">Categoria</th>
                 <th pSortableColumn="price">Veces Favorito</th>
+                <th>Acciones</th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-e>
@@ -18,6 +19,11 @@
                 <td>{{e.nombre}}</td>
                 <td>{{e.categoria}}</td>
                 <td>{{e.cantidadFavoritos}}</td>
+                <td>
+                    <button *ngIf="e.arribaPromedio">
+                        Eliminar
+                    </button>
+                </td>
             </tr>
         </ng-template>
     </p-table>
