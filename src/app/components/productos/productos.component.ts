@@ -77,6 +77,32 @@ export class ProductosComponent {
     );
   }
 
+  detalles(d : any){
+    this.apiServ.get('Producto/' + d.id).subscribe(
+      res => {
+            let template = `
+        <div>
+          <p>Nombre: ${res.nombre}</p>
+          <p>Categoría: ${res.categoria}</p>
+          <p>Descripción: ${res.descripcion}</p>
+          <p>Stock: ${res.stock}</p>
+          <p>Veces Favorito: ${res.cantidadDeseados}</p>
+        </div>
+        `
+
+        Swal.fire({
+          title: 'Detalles del producto',
+          html: template
+        });
+      },
+      err => {
+        console.log(err);
+        Swal.fire('Error', 'No se ha podido obtener los detalles del producto', 'error');
+        return;
+      }
+    );
+  }
+
 
   openNew() {
     this.agregar = true;

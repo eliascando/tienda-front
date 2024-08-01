@@ -1,8 +1,4 @@
 <div class="entity-table">
-    <div class="header">
-        <button pButton type="button" label="Agregar" icon="pi pi-plus" (click)="openNew()"></button>
-    </div>
-
     <p-table [value]="productos" [paginator]="true" [rows]="10" [globalFilterFields]="['nombre', 'descripcion']">
         <ng-template pTemplate="header">
             <tr>
@@ -22,7 +18,10 @@
                     <input type="text" [(ngModel)]="e.usuario">
                 </td> 
                 <td>
-                    <button pButton type="button" icon="pi pi-hearth" class="p-button-rounded p-button-info" (click)="favorito(e)"></button>
+                    <i class="fa fa-heart" aria-hidden="true" (click)="favorito(e)" style="cursor: pointer;"></i>
+                    <i class="fa fa-info" aria-hidden="true" (click)="detalles(e)" style="cursor: pointer; margin-left: 10px;"></i>
+                </td>
+                <td>
                 </td>
             </tr>
         </ng-template>
