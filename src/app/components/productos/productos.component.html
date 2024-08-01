@@ -1,0 +1,29 @@
+<div class="entity-table">
+    <div class="header">
+        <button pButton type="button" label="Agregar" icon="pi pi-plus" (click)="openNew()"></button>
+    </div>
+
+    <p-table [value]="productos" [paginator]="true" [rows]="10" [globalFilterFields]="['nombre', 'descripcion']">
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="id">Id <p-sortIcon field="id"></p-sortIcon></th>
+                <th pSortableColumn="name">Nombre</th>
+                <th pSortableColumn="parallel">Categoria</th>
+                <th pSortableColumn="price">Usuario</th>
+                <th>Acciones</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-e>
+            <tr>
+                <td>{{e.id}}</td>
+                <td>{{e.nombre}}</td>
+                <td>{{e.categoria}}</td>
+                <td>
+                    <input type="text" [(ngModel)]="e.usuario">
+                </td> 
+                <td>
+                    <button pButton type="button" icon="pi pi-hearth" class="p-button-rounded p-button-info" (click)="favorito(e)"></button>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
